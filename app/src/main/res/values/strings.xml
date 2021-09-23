@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lift &amp; Press</string>
+    <string name="app_name">LiftPress</string>
     <string name="maintxt_1">Welcome</string>
     <string name="maintxt_2">Create a new account</string>
     <string name="mainbtn_1">Login</string>
