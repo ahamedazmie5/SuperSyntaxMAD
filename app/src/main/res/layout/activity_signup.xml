@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="325dp"
-        android:layout_height="463dp"
+        android:layout_width="287dp"
+        android:layout_height="385dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022"
+        app:layout_constraintVertical_bias="0.104"
         app:srcCompat="@drawable/img4" />
 
     <TextView
@@ -27,15 +27,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.606" />
+        app:layout_constraintVertical_bias="0.564" />
 
     <EditText
         android:id="@+id/signupemail1"
         android:layout_width="350dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:background="@drawable/forget"
         android:ems="10"
         android:hint="@string/signupemail1"
@@ -47,15 +46,15 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintVertical_bias="0.705" />
 
     <EditText
         android:id="@+id/signuppassword1"
         android:layout_width="350dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:background="@drawable/forget"
         android:ems="10"
         android:hint="@string/signuppassword1"
@@ -67,10 +66,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.817" />
+        app:layout_constraintVertical_bias="0.801" />
 
     <Button
         android:id="@+id/sigupbtn1"
@@ -83,9 +82,9 @@
         app:cornerRadius="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.916" />
+        app:layout_constraintVertical_bias="0.919" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

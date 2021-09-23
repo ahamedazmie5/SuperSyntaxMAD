@@ -18,103 +18,51 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class signup extends AppCompatActivity implements View.OnClickListener {
+public class signup extends AppCompatActivity {
 
-    private TextView banner, register;
-    private EditText Email, Password;
-
-
+    private TextView userNameEdt , pwdEdt;
+    private Button registerbtn;
     private FirebaseAuth mAuth;
-
+    private TextView LoginTV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
 
+
+        setContentView(R.layout.activity_signup);
+        userNameEdt = findViewById(R.id.signupemail1);
+        pwdEdt = findViewById(R.id.signuppassword1);
+        registerbtn = findViewById(R.id.sigupbtn1);
         mAuth = FirebaseAuth.getInstance();
 
-        banner = (TextView) findViewById(R.id.signuptxt1);
-        banner.setOnClickListener(this);
+        registerbtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String userName = userNameEdt.getText().toString();
+                String pwd = pwdEdt.getText().toString();
+                if( (userName.isEmpty())||(!Patterns.EMAIL_ADDRESS.matcher(userName).matches())) {
+                    Toast.makeText(signup.this, "Please Insert Valid Email ", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (pwd.isEmpty()) {
+                    Toast.makeText(signup.this, "Please insert data to Password ", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    mAuth.createUserWithEmailAndPassword(userName, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(signup.this, "User Registered successfull!", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(signup.this, login.class);
+                                startActivity(i);
+                                finish();
 
-        register = (Button) findViewById(R.id.sigupbtn1);
-        register.setOnClickListener(this);
+                            } else {
+                                Toast.makeText(signup.this, "User Registration Failed!!", Toast.LENGTH_SHORT).show();
 
-        Email=(EditText) findViewById(R.id.signupemail1);
-        Password=(EditText) findViewById(R.id.signuppassword1);
-
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.signuptxt1:
-                startActivity(new Intent(this, MainActivity.class));
-                break;
-            case R.id.sigupbtn1:
-                register();
-                break;
-        }
-
-    }
-
-    private void register() {
-        String email= Email.getText().toString().trim();
-        String password= Password.getText().toString().trim();
-
-        if(email.isEmpty()){
-            Email.setError("Email is Required!");
-            Email.requestFocus();
-            return;
-        }
-
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            Email.setError("Please Provide a Valid Email!");
-            Email.requestFocus();
-            return;
-
-        }
-
-        if(password.isEmpty()){
-            Password.setError("Password is Required!");
-            Password.requestFocus();
-            return;
-
-        }
-
-        if(password.length() < 6){
-            Password.setError("Min Password Length Should be 6 Characters!");
-            Password.requestFocus();
-            return;
-        }
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        if(task.isSuccessful()){
-                            User user = new User(email);
-
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(signup.this, "User has been registered Successfully!", Toast.LENGTH_SHORT).show();
-                                    }else{
-                                        Toast.makeText(signup.this,"Failed to Register! Try Again!", Toast.LENGTH_SHORT).show();
-                                    }
-
-
-                                }
-                            });
-                        }else{
-                            Toast.makeText(signup.this,"Failed to Register! Try Again!", Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                });
-
-    }
-}
+                    });
+                }
+            }
+        });
+    }}

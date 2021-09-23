@@ -23,4 +23,6 @@
     <color name="signupemail1">#9C27B0</color>
     <color name="signuppassword1">#9C27B0</color>
     <color name="sigupbtn1">#9C27B0</color>
+    <color name="signupage">#9C27B0</color>
+    <color name="signupcountry">#9C27B0</color>
 </resources>
