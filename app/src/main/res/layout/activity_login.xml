@@ -34,7 +34,7 @@
     <EditText
         android:id="@+id/inputemail1"
         android:layout_width="350dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:background="@drawable/forget"
         android:ems="10"
         android:hint="@string/inputemail1"
@@ -51,7 +51,7 @@
     <EditText
         android:id="@+id/inputpassword1"
         android:layout_width="350dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:background="@drawable/forget"
         android:ems="10"
         android:hint="@string/inputpassword1"
