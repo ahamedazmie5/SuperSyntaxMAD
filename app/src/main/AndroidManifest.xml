@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LiftPress">
         <activity
+            android:name=".profile"
+            android:exported="true" />
+        <activity
             android:name=".signup"
             android:exported="true" />
         <activity
