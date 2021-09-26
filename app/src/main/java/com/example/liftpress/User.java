@@ -1,5 +1,5 @@
 package com.example.liftpress;
-
+//changed
 public class User {
 
     public String Email;
