@@ -1,7 +1,7 @@
 package com.example.liftpress;
 //anodya
 import androidx.appcompat.app.AppCompatActivity;
-
+//ohhhh
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
